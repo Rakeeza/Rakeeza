@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ركيزة هوم | صيانة ونظافة القصور، الفلل، المنازل والمباني</title>
+    
+    <!-- خطوط جوجل (Tajawal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#061121', /* أزرق داكن جداً مطابق للوجو */
+                            800: '#0a192f',
+                        },
+                        gold: {
+                            300: '#F3E5AB',
+                            400: '#D4AF37', /* ذهبي فاخر */
+                            500: '#C59B27',
+                            600: '#A67C00',
+                        },
+                        whatsapp: '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f8fafc; }
+        
+        /* تدرج لوني كحلي يحاكي خلفية اللوجو المرفق مع لمعان في المنتصف */
+        .bg-premium-blue {
+            background: radial-gradient(circle at 50% 30%, #152d4e 0%, #0a172a 60%, #040a12 100%);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #C59B27 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-bg {
+            background: linear-gradient(135deg, #C59B27 0%, #D4AF37 100%);
+        }
+
+        /* تأثير دمج اللوجو مع الخلفية الزرقاء لإخفاء الحواف */
+        .blend-logo {
+            mix-blend-mode: lighten;
+        }
+
+        /* أنيميشن الأزرار العائمة */
+        .float-whatsapp, .float-call {
+            transition: all 0.3s ease;
+        }
+        
+        .float-whatsapp { animation: pulse-whatsapp 2s infinite; }
+        .float-call { animation: pulse-call 2s infinite; animation-delay: 1s; }
+
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes pulse-call {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        /* كروت الخدمات */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .service-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .icon-wrapper { transition: all 0.3s ease; }
+
+        /* باترن خفيف للخلفية الكحلية لزيادة الفخامة */
+        .bg-pattern {
+            background-image: radial-gradient(#D4AF37 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden">
+
+    <div class="bg-black text-white text-sm py-2 px-4 text-center md:flex md:justify-between md:px-10 border-b border-gray-800">
+        <div class="mb-2 md:mb-0 flex justify-center items-center gap-2 font-medium">
+            <span class="text-gold-400"><i class="fas fa-clock"></i></span>
+            خدمة عملاء VIP على مدار الساعة طوال أيام الأسبوع
+        </div>
+        <div class="font-bold text-gold-400 flex justify-center items-center gap-2">
+            <i class="fas fa-phone-alt"></i> اتصل الآن: 
+            <a href="tel:+971500000000" dir="ltr" class="hover:text-white transition">+971 50 000 0000</a>
+        </div>
+    </div>
+
+    <header class="bg-premium-blue shadow-2xl sticky top-0 z-50 border-b border-gold-400/20">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <!-- الشعار المدمج -->
+            <a href="#" class="block w-36 md:w-48 hover:opacity-90 transition">
+                <img src="image_227922.jpg" alt="Rakeeza Home" class="w-full h-auto rounded blend-logo">
+            </a>
+            
+            <!-- أزرار الهيدر -->
+            <div class="hidden lg:flex gap-6 items-center text-gray-200">
+                <a href="#problems" class="hover:text-gold-400 font-semibold transition text-lg">لماذا نحن؟</a>
+                <a href="#services" class="hover:text-gold-400 font-semibold transition text-lg">خدماتنا الشاملة</a>
+                <a href="#works" class="hover:text-gold-400 font-semibold transition text-lg">أعمالنا</a>
+                <a href="#faq" class="hover:text-gold-400 font-semibold transition text-lg">الأسئلة الشائعة</a>
+                <a href="#guarantee" class="hover:text-gold-400 font-semibold transition text-lg">الضمان الذهبي</a>
+            </div>
+
+            <a href="https://wa.me/971500000000" target="_blank" class="bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold shadow-lg hover:bg-green-600 transition flex items-center gap-2">
+                <i class="fab fa-whatsapp text-xl"></i>
+                <span class="hidden sm:inline">تواصل واتساب</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="relative bg-premium-blue pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden border-b-4 border-gold-500">
+        <!-- طبقة النقش المذهب الخفيف -->
+        <div class="absolute inset-0 bg-pattern"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            
+            <div class="inline-block bg-gold-400/10 border border-gold-400/30 text-gold-400 px-5 py-2 rounded-full text-sm font-bold mb-8 backdrop-blur-sm shadow-lg">
+                <i class="fas fa-crown mr-1"></i> مخصص للقصور، الفلل، المنازل، والمباني
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 drop-shadow-lg">
+                رعاية متكاملة تليق بفخامة قصرك<br>
+                <span class="gold-gradient-text block mt-4">صيانة ونظافة في مكان واحد!</span>
+            </h1>
+            
+            <p class="text-gray-300 text-lg md:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">
+                لا تضيع وقتك بين شركات التكييف، السباكة، والنظافة العشوائية. <strong class="text-white">"ركيزة هوم"</strong> هي مدير عقارك الشخصي الذي يضمن لك صيانة تدوم، ونظافة تبرق، وراحة بال تامة.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                <a href="https://wa.me/971500000000" class="gold-bg text-navy-900 px-8 py-4 rounded-xl font-black text-lg shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105 transition flex items-center justify-center gap-3">
+                    <i class="fas fa-calendar-check text-xl"></i>
+                    احجز معاينة مجانية لفيلتك
+                </a>
+                <a href="#services" class="border-2 border-gray-400 text-white px-8 py-4 rounded-xl font-bold text-lg hover:border-gold-400 hover:text-gold-400 transition flex items-center justify-center gap-3 bg-navy-900/50 backdrop-blur-sm">
+                    <i class="fas fa-eye"></i>
+                    تصفح باقات الخدمات
+                </a>
+            </div>
+
+            <div class="mt-16 flex flex-wrap justify-center gap-6 md:gap-12 text-gray-300 text-sm md:text-base font-bold bg-navy-900/40 py-4 px-6 rounded-2xl backdrop-blur-md inline-flex border border-white/5">
+                <div class="flex items-center gap-2"><i class="fas fa-shield-alt text-gold-400 text-xl"></i> ضمان ذهبي شامل</div>
+                <div class="flex items-center gap-2"><i class="fas fa-clock text-gold-400 text-xl"></i> احترام صارم للمواعيد</div>
+                <div class="flex items-center gap-2"><i class="fas fa-user-tie text-gold-400 text-xl"></i> خصوصية تامة واحترافية</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problems" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-navy-900 mb-6">هل تعاني من هذه المشاكل مع شركات الصيانة؟</h2>
+                <div class="w-24 h-1.5 gold-bg mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+                <!-- صندوق الألم (الوجع) -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl border-t-4 border-red-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-6 py-1.5 rounded-bl-xl font-bold text-sm tracking-wide">المعاناة المعتادة</div>
+                    <ul class="space-y-8 mt-6">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-red-50 p-3 rounded-full text-red-500 mt-1"><i class="fas fa-times text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-gray-800 mb-2">صيانة ترقيعية وتكرار الأعطال</h4>
+                                <p class="text-gray-600 leading-relaxed">تدفع المال لإصلاح التكييف أو السباكة، ليعود نفس العطل بعد أيام قليلة بسبب العمالة غير المؤهلة!</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-red-50 p-3 rounded-full text-red-500 mt-1"><i class="fas fa-times text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-gray-800 mb-2">تشتت بين الشركات العشوائية</h4>
+                                <p class="text-gray-600 leading-relaxed">تضطر للاتصال بشركة للتنظيف، وأخرى للسباكة، وثالثة للحديقة.. ضياع مدمر للوقت والجهد.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-red-50 p-3 rounded-full text-red-500 mt-1"><i class="fas fa-times text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-gray-800 mb-2">عدم احترام الخصوصية والمواعيد</h4>
+                                <p class="text-gray-600 leading-relaxed">عمالة تترك فوضى وأوساخ خلفها، تأخير مستمر في المواعيد، وعدم تقدير لحرمة وقيمة المنزل.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- صندوق الحل مع ركيزة هوم -->
+                <div class="bg-premium-blue p-8 md:p-10 rounded-3xl shadow-2xl border-t-4 border-gold-400 relative overflow-hidden transform md:-translate-y-4">
+                    <div class="absolute top-0 right-0 gold-bg text-navy-900 px-6 py-1.5 rounded-bl-xl font-bold text-sm tracking-wide">الحل الجذري مع ركيزة هوم</div>
+                    <ul class="space-y-8 mt-6">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-gold-400/20 p-3 rounded-full text-gold-400 mt-1"><i class="fas fa-check text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-white mb-2">إصلاح جذري من المرة الأولى</h4>
+                                <p class="text-gray-300 leading-relaxed">نستخدم قطع غيار أصلية ونعالج أصل المشكلة من الجذور مع ضمان حقيقي على جودة العمل.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-gold-400/20 p-3 rounded-full text-gold-400 mt-1"><i class="fas fa-check text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-white mb-2">مدير شخصي لعقارك (كل شيء بمكان واحد)</h4>
+                                <p class="text-gray-300 leading-relaxed">رقم واحد تتصل به ليتولى كافة أعمال الصيانة، التنظيف العميق، التكييف، والعزل بكفاءة تامة.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-gold-400/20 p-3 rounded-full text-gold-400 mt-1"><i class="fas fa-check text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-white mb-2">رعاية VIP تحترم وقتك وخصوصيتك</h4>
+                                <p class="text-gray-300 leading-relaxed">فريق محترف، يلتزم بالدقيقة، ينهي عمله بهدوء شديد، ويسلمك المكان أنظف مما كان.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20">
+                <span class="text-gold-500 font-bold tracking-wider text-sm bg-gold-50 px-4 py-1 rounded-full inline-block">باقات الرعاية المتكاملة</span>
+                <h2 class="text-3xl md:text-5xl font-black text-navy-900 mt-4 mb-6">خدمات صيانة ونظافة بمقاييس عالمية</h2>
+                <p class="text-gray-500 max-w-3xl mx-auto text-lg">لأن قصرك يستحق الأفضل، نقدم لك منظومة خدمات مترابطة تغطي كل زاوية في عقارك بأعلى درجات الاحترافية.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 max-w-7xl mx-auto">
+                
+                <!-- خدمة 1: التكييف -->
+                <div class="service-card bg-gray-50/50 hover:bg-white rounded-3xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-900 rounded-bl-full opacity-5 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="icon-wrapper w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400 text-3xl mb-6 shadow-xl relative z-10">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 relative z-10">صيانة التكييف والتبريد</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 relative z-10">صيانة دورية وإصلاح أعطال المكيفات المركزية والسبليت لضمان هواء نقي وتبريد مثالي في أشد أيام الصيف حرارة.</p>
+                    <ul class="text-gray-600 space-y-3 font-medium relative z-10">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> غسيل الفلاتر وتعبئة الغاز</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> إصلاح التسربات والأعطال الكهربائية</li>
+                    </ul>
+                </div>
+
+                <!-- خدمة 2: الرخام -->
+                <div class="service-card bg-gray-50/50 hover:bg-white rounded-3xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-900 rounded-bl-full opacity-5 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="icon-wrapper w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400 text-3xl mb-6 shadow-xl relative z-10">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 relative z-10">تنظيف وتلميع الأرضيات</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 relative z-10">نعيد للأرضيات الرخامية والسيراميك نظافتها ولمعانها المشرق باستخدام مواد فعالة وآمنة تزيل الأوساخ والخدوش السطحية.</p>
+                    <ul class="text-gray-600 space-y-3 font-medium relative z-10">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> تلميع الرخام وتنظيف الفواصل</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> تنظيف وتلميع السيراميك</li>
+                    </ul>
+                </div>
+
+                <!-- خدمة 3: السباكة -->
+                <div class="service-card bg-gray-50/50 hover:bg-white rounded-3xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-900 rounded-bl-full opacity-5 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="icon-wrapper w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400 text-3xl mb-6 shadow-xl relative z-10">
+                        <i class="fas fa-faucet"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 relative z-10">السباكة ومعالجة التسربات</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 relative z-10">نضع حداً لارتفاع فواتير المياه وتلف الجدران. إصلاح وصيانة شبكات المياه والصرف الصحي ومعالجة مشاكل التسربات.</p>
+                    <ul class="text-gray-600 space-y-3 font-medium relative z-10">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> معالجة وإصلاح تسربات المياه</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> صيانة المضخات والسخانات</li>
+                    </ul>
+                </div>
+
+                <!-- خدمة 4: التنظيف العميق -->
+                <div class="service-card bg-gray-50/50 hover:bg-white rounded-3xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-900 rounded-bl-full opacity-5 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="icon-wrapper w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400 text-3xl mb-6 shadow-xl relative z-10">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 relative z-10">التنظيف العميق للفلل</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 relative z-10">تنظيف شامل من السقف للأرضية. مثالي بعد التشطيب أو الانتقال لسكن جديد، أو كباقة نظافة دورية للحفاظ على رونق الفيلا.</p>
+                    <ul class="text-gray-600 space-y-3 font-medium relative z-10">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> تنظيف واجهات الزجاج والدرايش</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> غسيل السجاد والمفروشات بالبخار</li>
+                    </ul>
+                </div>
+
+                <!-- خدمة 5: الكهرباء والديكور -->
+                <div class="service-card bg-gray-50/50 hover:bg-white rounded-3xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-900 rounded-bl-full opacity-5 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="icon-wrapper w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400 text-3xl mb-6 shadow-xl relative z-10">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 relative z-10">أعمال الكهرباء والديكور</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 relative z-10">حلول آمنة لجميع المشاكل الكهربائية، بالإضافة لخدمات الصبغ الاحترافي وترميم ديكورات الجبس بورد المتضررة.</p>
+                    <ul class="text-gray-600 space-y-3 font-medium relative z-10">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> صيانة اللوحات وتمديدات الإضاءة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> أصباغ داخلية وخارجية وتجديد الديكور</li>
+                    </ul>
+                </div>
+
+                <!-- خدمة 6: المسابح والمرافق -->
+                <div class="service-card bg-gray-50/50 hover:bg-white rounded-3xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-navy-900 rounded-bl-full opacity-5 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="icon-wrapper w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400 text-3xl mb-6 shadow-xl relative z-10">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 relative z-10">صيانة المرافق والحدائق</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 relative z-10">العناية الكاملة بالمرافق الخارجية. تعقيم خزانات المياه، تنظيف وصيانة فلاتر المسابح، وتنسيق الحدائق والانترلوك.</p>
+                    <ul class="text-gray-600 space-y-3 font-medium relative z-10">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> تعقيم الخزانات وصيانة المسابح</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-whatsapp"></i> عزل الأسطح وحمايتها من التسريب</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="https://wa.me/971500000000" class="inline-flex items-center gap-3 bg-navy-900 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-navy-800 transition shadow-[0_10px_25px_rgba(6,17,33,0.3)] hover:scale-105 transform duration-300">
+                    <span>احصل على عرض سعر شامل لفيلتك</span>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="guarantee" class="py-24 bg-premium-blue relative overflow-hidden border-t-4 border-gold-500">
+        <!-- باترن الخلفية للضمان -->
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16 max-w-6xl mx-auto">
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <div class="w-56 h-56 bg-gradient-to-br from-gold-300 to-gold-600 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.4)] relative">
+                        <div class="w-52 h-52 bg-navy-900 rounded-full flex flex-col items-center justify-center text-center p-4 border-2 border-dashed border-gold-400">
+                            <i class="fas fa-shield-alt text-5xl text-gold-400 mb-3"></i>
+                            <span class="text-white font-black text-xl tracking-wide">الضمان الذهبي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/3 text-center lg:text-right">
+                    <h2 class="text-3xl md:text-5xl font-black text-gold-400 mb-6 drop-shadow-md">الضمان الذهبي من ركيزة هوم</h2>
+                    <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+                        نحن لا نبيعك خدمة مؤقتة، بل نبيعك "راحة البال". جميع أعمال الصيانة والتركيبات والتنظيف مدعومة بضماننا الذهبي. إذا تكرر العطل أو لم تكن راضياً عن مستوى النظافة، سنعود فوراً لإصلاح الأمر <strong class="text-white border-b-2 border-gold-400 pb-1">مجاناً وبدون أي أعذار</strong>.
+                    </p>
+                    <a href="tel:+971500000000" class="inline-flex items-center gap-3 gold-bg text-navy-900 px-8 py-4 rounded-xl font-black text-lg hover:scale-105 transition shadow-[0_10px_20px_rgba(212,175,55,0.3)]">
+                        <i class="fas fa-phone-volume text-xl"></i> اتصل وتحدث مع الخبير الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-gold-500 font-bold tracking-wider text-sm bg-gold-50 px-4 py-1 rounded-full inline-block">معرض أعمالنا</span>
+                <h2 class="text-3xl md:text-5xl font-black text-navy-900 mt-4 mb-6">النتائج تتحدث عن نفسها</h2>
+                <div class="w-24 h-1.5 gold-bg mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">شاهد جودة عملنا على أرض الواقع في مختلف المنازل والفلل والمباني.</p>
+            </div>
+
+            <!-- قسم قبل وبعد -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-navy-900 mb-8 text-center"><i class="fas fa-adjust text-gold-400 ml-2"></i>أعمال النظافة والصيانة (قبل وبعد)</h3>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col sm:flex-row relative group">
+                        <div class="w-full sm:w-1/2 relative">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 text-sm font-bold rounded-lg z-10 shadow">قبل</span>
+                            <img src="https://placehold.co/400x300/e2e8f0/64748b?text=Before+Cleaning" alt="قبل النظافة" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                        </div>
+                        <div class="w-full sm:w-1/2 relative">
+                            <span class="absolute top-4 left-4 bg-whatsapp text-white px-3 py-1 text-sm font-bold rounded-lg z-10 shadow">بعد</span>
+                            <img src="https://placehold.co/400x300/f8fafc/0f172a?text=After+Deep+Clean" alt="بعد النظافة" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col sm:flex-row relative group">
+                        <div class="w-full sm:w-1/2 relative">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 text-sm font-bold rounded-lg z-10 shadow">قبل</span>
+                            <img src="https://placehold.co/400x300/e2e8f0/64748b?text=Before+Maintenance" alt="قبل الصيانة" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                        </div>
+                        <div class="w-full sm:w-1/2 relative">
+                            <span class="absolute top-4 left-4 bg-whatsapp text-white px-3 py-1 text-sm font-bold rounded-lg z-10 shadow">بعد</span>
+                            <img src="https://placehold.co/400x300/f8fafc/0f172a?text=After+Maintenance" alt="بعد الصيانة" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم معرض الصور -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-navy-900 mb-8 text-center"><i class="fas fa-camera text-gold-400 ml-2"></i>صور من مواقع العمل</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                    <img src="https://placehold.co/400x400/0a192f/D4AF37?text=Work+1" alt="عمل 1" class="w-full h-48 object-cover rounded-xl shadow hover:opacity-80 transition cursor-pointer">
+                    <img src="https://placehold.co/400x400/0a192f/D4AF37?text=Work+2" alt="عمل 2" class="w-full h-48 object-cover rounded-xl shadow hover:opacity-80 transition cursor-pointer">
+                    <img src="https://placehold.co/400x400/0a192f/D4AF37?text=Work+3" alt="عمل 3" class="w-full h-48 object-cover rounded-xl shadow hover:opacity-80 transition cursor-pointer">
+                    <img src="https://placehold.co/400x400/0a192f/D4AF37?text=Work+4" alt="عمل 4" class="w-full h-48 object-cover rounded-xl shadow hover:opacity-80 transition cursor-pointer">
+                </div>
+            </div>
+
+            <!-- قسم الفيديو -->
+            <div>
+                <h3 class="text-2xl font-bold text-navy-900 mb-8 text-center"><i class="fas fa-play-circle text-gold-400 ml-2"></i>فيديوهات توثيقية</h3>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer bg-gray-900 h-64 flex items-center justify-center">
+                        <img src="https://placehold.co/800x450/1e293b/94a3b8?text=Video+Thumbnail" alt="فيديو 1" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
+                        <i class="fas fa-play text-5xl text-white/80 group-hover:text-gold-400 group-hover:scale-110 transition relative z-10 drop-shadow-lg"></i>
+                        <div class="absolute bottom-4 right-4 z-10 text-white font-bold drop-shadow-md bg-black/50 px-3 py-1 rounded">تنظيف واجهات مبنى كامل</div>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer bg-gray-900 h-64 flex items-center justify-center">
+                        <img src="https://placehold.co/800x450/1e293b/94a3b8?text=Video+Thumbnail" alt="فيديو 2" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
+                        <i class="fas fa-play text-5xl text-white/80 group-hover:text-gold-400 group-hover:scale-110 transition relative z-10 drop-shadow-lg"></i>
+                        <div class="absolute bottom-4 right-4 z-10 text-white font-bold drop-shadow-md bg-black/50 px-3 py-1 rounded">إصلاح وتجديد سباكة فيلا</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                 <a href="https://wa.me/971500000000" class="inline-flex items-center gap-3 border-2 border-navy-900 text-navy-900 px-8 py-3 rounded-xl font-bold hover:bg-navy-900 hover:text-white transition">
+                    المزيد على حساباتنا <i class="fab fa-instagram text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسئلة الشائعة -->
+    <section id="faq" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16">
+                <i class="fas fa-question-circle text-5xl text-gold-400 mb-4"></i>
+                <h2 class="text-3xl md:text-5xl font-black text-navy-900 mb-6">الأسئلة الشائعة</h2>
+                <div class="w-24 h-1.5 gold-bg mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- سؤال 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <h4 class="font-bold text-xl text-navy-900 mb-3 flex items-start gap-3">
+                        <span class="text-gold-500"><i class="fas fa-plus-circle"></i></span>
+                        هل تقدمون خدماتكم للقصور فقط؟
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pr-8">
+                        بالطبع لا! نحن نركز على الجودة الفائقة، ولذلك نقدم خدماتنا للقصور، الفلل، المنازل المستقلة، والمباني أيضاً. فريقنا مجهز للتعامل مع مختلف الأحجام والاحتياجات.
+                    </p>
+                </div>
+                
+                <!-- سؤال 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <h4 class="font-bold text-xl text-navy-900 mb-3 flex items-start gap-3">
+                        <span class="text-gold-500"><i class="fas fa-plus-circle"></i></span>
+                        هل تقدمون ضماناً على أعمال الصيانة؟
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pr-8">
+                        نعم بكل تأكيد. نحن في "ركيزة هوم" نقدم ضماناً على معظم أعمال الصيانة التي نقوم بها لضمان راحة بالك وعدم تكرار العطل وتوفير التكاليف عليك.
+                    </p>
+                </div>
+
+                <!-- سؤال 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <h4 class="font-bold text-xl text-navy-900 mb-3 flex items-start gap-3">
+                        <span class="text-gold-500"><i class="fas fa-plus-circle"></i></span>
+                        هل يمكنني طلب خدمة واحدة أم يجب حجز باقة كاملة؟
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pr-8">
+                        الخيار لك دائماً. يمكنك طلب خدمة تنظيف منفردة، أو خدمة صيانة محددة كالتكييف والسباكة، كما يمكنك الاستفادة من باقاتنا الشاملة للرعاية الدورية.
+                    </p>
+                </div>
+
+                <!-- سؤال 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <h4 class="font-bold text-xl text-navy-900 mb-3 flex items-start gap-3">
+                        <span class="text-gold-500"><i class="fas fa-plus-circle"></i></span>
+                        كيف يتم تحديد أسعار الخدمات؟
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pr-8">
+                        تعتمد الأسعار على حجم العمل ونوع الخدمة المطلوبة. نوفر خدمة المعاينة لتقييم الاحتياجات الفعلية لمكانك، لنقدم لك عرض سعر شفاف ومناسب وبدون أي تكاليف خفية.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-gray-600">
+                لديك سؤال آخر؟ <a href="https://wa.me/971500000000" class="text-whatsapp font-bold hover:underline mx-1">تواصل معنا عبر الواتساب</a> وسنجيبك فوراً.
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-100 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-black text-navy-900 mb-6">ماذا يقول عملاؤنا عنا؟</h2>
+                <div class="w-24 h-1.5 gold-bg mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
+                <!-- تقييم 1 -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100 relative hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-quote-right text-5xl text-gold-400/10 absolute top-8 right-8"></i>
+                    <div class="flex text-gold-400 mb-6 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed italic relative z-10 text-lg">"كنت أعاني من مشكلة تسريب مياه في سقف الفيلا، أحضرت شركات ولم يحلوها. فريق ركيزة هوم اكتشف الخلل وأصلحه جذرياً مع ترميم السقف. احترافية عالية جداً."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">أ. م</div>
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-lg">مالك فيلا</h4>
+                            <span class="text-sm text-gray-500 font-medium">عجمان</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تقييم 2 -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100 relative hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-quote-right text-5xl text-gold-400/10 absolute top-8 right-8"></i>
+                    <div class="flex text-gold-400 mb-6 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed italic relative z-10 text-lg">"تعاقدت معهم لتنظيف المنزل بعد التشطيب وتلميع الأرضيات. بصراحة، استلمت البيت يبرق كالمرآة. العمالة محترمة جداً وهادئة وتحترم خصوصية المكان. أنصح بهم بشدة."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">س. ع</div>
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-lg">صاحب منزل</h4>
+                            <span class="text-sm text-gray-500 font-medium">الإمارات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تقييم 3 -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100 relative hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-quote-right text-5xl text-gold-400/10 absolute top-8 right-8"></i>
+                    <div class="flex text-gold-400 mb-6 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed italic relative z-10 text-lg">"أفضل شيء في ركيزة هوم هو أنني لم أعد أبحث عن سباك أو كهربائي أو شركة تنظيف. هم يتولون كل شيء باتصال واحد مني. وفروا علي الكثير من وجع الرأس."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">م. ش</div>
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-lg">عميل دائم</h4>
+                            <span class="text-sm text-gray-500 font-medium">عقد صيانة سنوي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-900 text-gray-400 py-16 border-t border-gray-800 text-center relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-8">
+                <!-- اللوجو في الفوتر -->
+                <img src="image_227922.jpg" alt="Rakeeza Home" class="w-48 h-auto rounded blend-logo">
+            </div>
+            <p class="mb-8 max-w-lg mx-auto text-gray-300 text-lg leading-relaxed">
+                الشركة الرائدة في إدارة وصيانة ونظافة الفلل والقصور والمجمعات السكنية الراقية في عجمان والإمارات العربية المتحدة.
+            </p>
+            <div class="flex justify-center gap-8 mb-10">
+                <a href="#" class="text-gray-400 hover:text-gold-400 transition text-3xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold-400 transition text-3xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold-400 transition text-3xl"><i class="fab fa-snapchat"></i></a>
+            </div>
+            <p class="text-sm border-t border-gray-800 pt-8 font-medium">&copy; 2024 Rakeeza Home. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- ترتيب flex-row-reverse يجعل الواتساب في الزاوية اليمنى القصوى والاتصال بجانبه للداخل -->
+    <div class="fixed bottom-6 right-6 flex flex-row-reverse items-center gap-4 z-50">
+        
+        <!-- زر الواتساب (الأخضر) -->
+        <a href="https://wa.me/971500000000" target="_blank" class="bg-whatsapp text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_20px_rgba(37,211,102,0.4)] hover:bg-green-600 transition float-whatsapp" title="تواصل معنا عبر الواتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
+        <!-- زر الاتصال (الذهبي) -->
+        <a href="tel:+971500000000" class="gold-bg text-navy-900 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-[0_10px_20px_rgba(212,175,55,0.4)] hover:scale-110 transition float-call" title="اتصل بنا الآن">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        
+    </div>
+
+</body>
+</html>
